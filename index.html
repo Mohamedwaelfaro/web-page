@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Task web</title>
+  </head>
+  <body>
+    <center><h1>input the number</h1></center>
+    <center>
+      <input id="i" type="text" /><button onclick="myfunc()">submit</button>
+    </center>
+
+    <center><p id="p1"></p></center>
+    <script>
+      function myfunc() {
+        const message = document.getElementById("p1");
+        message.innerHTML = "";
+        let p1 = document.getElementById("i").value;
+
+        try {
+          if (p1.trim() === "") throw "empty";
+          if (isNaN(p1)) throw "not number";
+
+          p1 = Number(p1);
+          if (p1 > 5) throw "high";
+          if (p1 < 5) throw "low";
+          if (p1 == p1) throw "equal";
+        } catch (error) {
+          message.innerHTML = "result = " + error;
+        }
+      }
+    </script>
+  </body>
+</html>
